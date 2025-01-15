@@ -51,7 +51,7 @@ func Dial(dbDSN string, verbose bool) (*DB, error) {
 	}
 
 	log.Get().Debug("Dial: database connection established successfully",
-		"DSN", dbDSN,
+		log.String("DSN", dbDSN),
 	)
 
 	return &DB{bunDB}, nil

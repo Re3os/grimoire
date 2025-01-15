@@ -89,5 +89,10 @@ func connect(ctx context.Context, dsn string, verbose bool, logger *log.Logger, 
 		)
 		return nil, err
 	}
+
+	tracerName := "my-application-tracer"
+
+	db.AddQueryHook(bun.NewOtelQueryHook(tracerName, name))
+
 	return db, nil
 }
